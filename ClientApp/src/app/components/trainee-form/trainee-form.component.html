@@ -1,0 +1,62 @@
+<h2>Trainee Information </h2>
+<hr />
+<p>
+  <a [routerLink]="['/trainee']" class="btn btn-primary">Back to List</a>
+</p>
+<form #f="ngForm" (ngSubmit)="submit()">
+  <div class="form-group">
+    <label for="traineeName">Trainee Name</label>
+    <input type="text" id="traineeName" class="form-control" [(ngModel)]="trainee.traineeName" name="traineeName" required #traineeName="ngModel" />
+    <div class="alert alert-danger" *ngIf="traineeName.touched && !traineeName.valid">Please Enter Name</div>
+  </div>
+
+  <div class="form-group">
+    <label for="gender">Gender</label>
+    <div class="col-md-4">
+      <select class="form-control" [(ngModel)]="trainee.gender" name="gender" required #gender="ngModel">
+        <option value="">-- Select Gender --</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="traineeEmail">Trainee Email</label>
+    <input type="text" id="traineeEmail" class="form-control" [(ngModel)]="trainee.traineeEmail" name="traineeEmail" required #traineeEmail="ngModel" />
+    <div class="alert alert-danger" *ngIf="traineeEmail.touched && !traineeEmail.valid">Please Enter Email</div>
+  </div>
+
+  <div class="form-group">
+    <label for="dob">Date of Birth</label>
+    <div class="col-md-4">
+      <input type="date" id="dob" class="form-control" [(ngModel)]="trainee.dob" name="dob" required #dob="ngModel" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="educationalStatus">Educational Status</label>
+    <div class="col-md-4">
+      <input type="checkbox" id="educationalStatus" class="form-control" [(ngModel)]="trainee.educationalStatus" name="educationalStatus" required #educationalStatus="ngModel" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="traineeContact">Trainee Contact</label>
+    <input type="text" id="traineeContact" class="form-control" [(ngModel)]="trainee.traineeContact" name="traineeContact" required #traineeContact="ngModel" />
+    <div class="alert alert-danger" *ngIf="traineeContact.touched && !traineeContact.valid">Please Enter Contact</div>
+  </div>
+
+  <div class="form-group">
+    <label for="courseName">Assign Course</label>
+    <div class="col-md-4">
+      <select class="form-control" id="courseID" [(ngModel)]="trainee.courseID" name="courseID" required #courseID="ngModel">
+        <option [ngValue]="0">--Select Course--</option>
+        <option *ngFor="let crs of courseList" [ngValue]="crs.courseID">{{crs.courseName}}</option>
+      </select>
+    </div>
+  </div>
+
+
+  <input type="submit" class="btn btn-primary" [disabled]="!f.valid" value="Add" *ngIf="!trainee.traineeID" />
+  <input type="submit" class="btn btn-info" value="Update" *ngIf="trainee.traineeID" />
+</form>
+

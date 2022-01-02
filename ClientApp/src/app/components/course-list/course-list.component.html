@@ -1,0 +1,25 @@
+<p>course-list works!</p>
+<p>
+  <a class="btn btn-primary" [routerLink]="['/course/add']">Add New Course</a>
+</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Course Name</th>
+      <th>Duration</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of courses">
+      <td>{{c.courseID}}</td>
+      <td>{{c.courseName}}</td>
+      <td>{{c.courseDuration}}</td>
+      <td>
+        <a class="btn btn-primary" [routerLink]="['/course/', c.courseID]">Edit</a>
+        <button class="btn btn-danger" (click)="delete(c.courseID)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

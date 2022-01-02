@@ -1,0 +1,34 @@
+
+<p>
+  <a class="btn btn-primary" [routerLink]="['/trainee/add']">Add Trainee</a>
+</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Trainee Name</th>
+      <th>Gender</th>
+      <th>Email</th>
+      <th>Contact</th>
+      <th>Assigned Course</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let t of trainees">
+      <td>{{t.traineeID}}</td>
+      <td>{{t.traineeName}}</td>
+      <td>{{t.gender}}</td>
+      <td>{{t.traineeEmail}}</td>
+      <td>{{t.traineeContact}}</td>
+      <td>{{t.courseID}}</td>
+      <td>{{t.dob}}</td>
+      <td>{{t.educationalStatus}}</td>
+      <td>
+        <a class="btn btn-primary" [routerLink]="['/trainee/', t.traineeID]">Edit</a>
+        <button class="btn btn-danger" (click)="delete(t.traineeID)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

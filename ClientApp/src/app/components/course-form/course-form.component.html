@@ -1,0 +1,22 @@
+<p>course-form works!</p>
+<h2>course Information </h2>
+<hr />
+<p>
+  <a [routerLink]="['/course']" class="btn btn-primary">Back to List</a>
+</p>
+<form #f="ngForm" (ngSubmit)="submit()">
+  <div class="form-group">
+    <label for="courseName">Course Name</label>
+    <input type="text" id="courseName" class="form-control" [(ngModel)]="course.courseName" name="courseName" required
+           #courseName="ngModel" />
+    <div class="alert alert-danger" *ngIf="courseName.touched && !courseName.valid">Please Enter Name</div>
+  </div>
+  <div class="form-group">
+    <label for="courseDuration">Course Duration</label>
+    <input type="text" id="courseDuration" class="form-control" [(ngModel)]="course.courseDuration" name="courseDuration" required
+           #courseDuration="ngModel" />
+    <div class="alert alert-danger" *ngIf="courseDuration.touched && !courseDuration.valid">Please Enter Course Duration</div>
+  </div>
+  <input type="submit" class="btn btn-primary" [disabled]="!f.valid" value="Add" *ngIf="!course.courseID" />
+  <input type="submit" class="btn btn-info" value="Update" *ngIf="course.courseID" />
+</form> 
