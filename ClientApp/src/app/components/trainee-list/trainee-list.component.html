@@ -12,6 +12,8 @@
       <th>Email</th>
       <th>Contact</th>
       <th>Assigned Course</th>
+      <th>Date of Birth</th>
+      <th>Is Currently Student?</th>
       <th></th>
     </tr>
   </thead>
@@ -23,8 +25,8 @@
       <td>{{t.traineeEmail}}</td>
       <td>{{t.traineeContact}}</td>
       <td>{{t.courseID}}</td>
-      <td>{{t.dob}}</td>
-      <td>{{t.educationalStatus}}</td>
+      <td>{{t.dob|date:shortDate}}</td>
+      <td>{{t.educationalStatus ? "Yes" : "No"}}</td>
       <td>
         <a class="btn btn-primary" [routerLink]="['/trainee/', t.traineeID]">Edit</a>
         <button class="btn btn-danger" (click)="delete(t.traineeID)">Delete</button>

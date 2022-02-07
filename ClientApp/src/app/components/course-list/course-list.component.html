@@ -17,7 +17,7 @@
       <td>{{c.courseName}}</td>
       <td>{{c.courseDuration}}</td>
       <td>
-        <a class="btn btn-primary" [routerLink]="['/course/', c.courseID]">Edit</a>
+        <a class="btn btn-primary" [routerLink]="['/course/', c.traineeID]">Edit</a>
         <button class="btn btn-danger" (click)="delete(c.courseID)">Delete</button>
       </td>
     </tr>

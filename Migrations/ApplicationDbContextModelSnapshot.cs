@@ -62,6 +62,9 @@ namespace AngularFinalProject_Mehedee.Migrations
                     b.Property<string>("TraineeEmail")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("TraineeImage")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("TraineeName")
                         .HasColumnType("nvarchar(max)");
 
